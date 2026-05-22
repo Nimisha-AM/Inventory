@@ -1,0 +1,60 @@
+﻿@using inventory.Models
+
+@{
+    ViewData["Title"] = "Add Stock";
+}
+
+<h2>Add Stock</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<form method="post">
+
+    <div class="mb-3">
+
+        <label>Select Variant</label>
+
+        <select name="variantId" class="form-control">
+
+            @if (ViewBag.Variants != null)
+            {
+                foreach (Variant v in ViewBag.Variants)
+                {
+                    <option value="@v.Id">
+                        @v.Product.ProductName -
+                        @v.Size -
+                        @v.Color
+                    </option>
+                }
+            }
+            else
+            {
+                <option>No Variants Found</option>
+            }
+
+        </select>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Quantity</label>
+
+        <input type="number"
+               name="qty"
+               class="form-control"
+               placeholder="Enter quantity" />
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Add Stock
+    </button>
+
+</form>

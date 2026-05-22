@@ -1,0 +1,26 @@
+﻿@model dynamic
+
+<h2>Add Stock</h2>
+
+<form method="post">
+
+    <label>Variant</label>
+    <select name="variantId" class="form-control">
+        @foreach (var v in ViewBag.Variants)
+        {
+            <option value="@v.Id">
+                @v.Product.ProductName - @v.Size - @v.Color
+            </option>
+        }
+    </select>
+
+    <br />
+
+    <label>Quantity</label>
+    <input name="qty" class="form-control" />
+
+    <br />
+
+    <button class="btn btn-success">Add Stock</button>
+
+</form>

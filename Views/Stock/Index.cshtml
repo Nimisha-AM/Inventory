@@ -1,0 +1,72 @@
+﻿@model List<inventory.Models.Stock>
+
+@{
+    ViewData["Title"] = "Stock List";
+}
+
+<h2>Stock List</h2>
+
+<a href="/Stock/Add"
+   class="btn btn-primary mb-3">
+    + Add Stock
+</a>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Id</td>
+
+            <td>
+                @item.Variant.Product.ProductName
+            </td>
+
+            <td>
+                @item.Variant.Size
+            </td>
+
+            <td>
+                @item.Variant.Color
+            </td>
+
+            <td>
+                @item.Quantity
+            </td>
+
+            <td>
+
+                <form method="post"
+                      action="/Stock/Remove">
+
+                    <input type="hidden"
+                           name="variantId"
+                           value="@item.VariantId" />
+
+                    <input type="number"
+                           name="qty"
+                           placeholder="Qty"
+                           class="form-control mb-2" />
+
+                    <button class="btn btn-danger btn-sm">
+                        Remove
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+    }
+
+</table>

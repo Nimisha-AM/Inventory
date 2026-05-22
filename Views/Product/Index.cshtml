@@ -1,0 +1,56 @@
+﻿@model IEnumerable<inventory.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Product List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Add Product
+    </a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.ProductName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="mt-3">
+
+    <a asp-action="Index"
+       asp-route-page="@(ViewBag.Page - 1)"
+       class="btn btn-primary @(ViewBag.Page <= 1 ? "disabled" : "")">
+        Prev
+    </a>
+
+    <span class="mx-2">
+        Page @ViewBag.Page of @ViewBag.TotalPages
+    </span>
+
+    <a asp-action="Index"
+       asp-route-page="@(ViewBag.Page + 1)"
+       class="btn btn-primary @(ViewBag.Page >= ViewBag.TotalPages ? "disabled" : "")">
+        Next
+    </a>
+
+</div>

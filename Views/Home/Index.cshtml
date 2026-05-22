@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">
+            📦 Inventory & Stock Management System
+        </h1>
+        <p class="text-muted">
+            Manage products, variants, and stock efficiently
+        </p>
+    </div>
+
+    <div class="row text-center">
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-lg border-0 p-4">
+                <h4 class="text-primary">Products</h4>
+                <p class="text-muted">Add, edit and manage products</p>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-primary">
+                    Go to Products
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-lg border-0 p-4">
+                <h4 class="text-success">Variants</h4>
+                <p class="text-muted">Manage size & color combinations</p>
+                <a asp-controller="Variant" asp-action="Index" class="btn btn-success">
+                    Go to Variants
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-lg border-0 p-4">
+                <h4 class="text-warning">Stock</h4>
+                <p class="text-muted">Track inventory levels</p>
+                <a asp-controller="Stock" asp-action="Index" class="btn btn-warning">
+                    Go to Stock
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

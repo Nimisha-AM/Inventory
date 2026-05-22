@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Create Variants";
+}
+
+<h2>Create Variants</h2>
+
+<form asp-controller="Variant"
+      asp-action="Generate"
+      method="post">
+
+    <div class="mb-3">
+        <label>Product</label>
+
+        <select name="productId" class="form-control">
+
+            @foreach (var p in ViewBag.Products)
+            {
+                <option value="@p.Id">
+                    @p.ProductName
+                </option>
+            }
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Sizes (comma separated)</label>
+
+        <input type="text"
+               name="sizes"
+               class="form-control"
+               placeholder="S,M,L" />
+    </div>
+
+    <div class="mb-3">
+        <label>Colors (comma separated)</label>
+
+        <input type="text"
+               name="colors"
+               class="form-control"
+               placeholder="Red,Blue" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Generate Variants
+    </button>
+
+</form>

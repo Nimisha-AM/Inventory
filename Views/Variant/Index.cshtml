@@ -1,0 +1,28 @@
+﻿@model List<inventory.Models.Variant>
+
+<h2>Variants</h2>
+
+<a href="/Variant/Create" class="btn btn-primary mb-3">
+    + Create Variants
+</a>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>ProductId</th>
+        <th>Size</th>
+        <th>Color</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.ProductId</td>
+            <td>@item.Size</td>
+            <td>@item.Color</td>
+        </tr>
+    }
+
+</table>
